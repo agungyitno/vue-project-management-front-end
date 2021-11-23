@@ -53,7 +53,7 @@
       </form>
       <div class="text-center text-muted mt-3">
         Already have account?
-        <router-link to="/login"> Sign in</router-link>
+        <router-link :to="{ name: 'login' }"> Sign in</router-link>
       </div>
     </div>
   </div>

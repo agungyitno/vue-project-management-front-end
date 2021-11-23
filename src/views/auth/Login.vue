@@ -43,7 +43,7 @@
       </div>
       <div class="text-center text-muted mt-3">
         Don't have account yet?
-        <router-link to="/register">Sign up</router-link>
+        <router-link :to="{ name: 'register' }">Sign up</router-link>
       </div>
     </div>
   </div>
