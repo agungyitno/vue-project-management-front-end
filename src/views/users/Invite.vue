@@ -16,7 +16,7 @@
         </div>
         <div class="modal-header">
           <h5 class="modal-title">Invite new user</h5>
-          <router-link to="/users" class="btn-close"></router-link>
+          <router-link :to="{ name: 'user' }" class="btn-close"></router-link>
         </div>
         <form @submit.prevent="handleSubmit">
           <div class="modal-body">
@@ -28,8 +28,16 @@
             ></text-field>
           </div>
           <div class="modal-footer">
-            <router-link to="/users" class="btn me-auto"> Cancel </router-link>
-            <button type="submit" class="btn btn-primary">Invite</button>
+            <router-link :to="{ name: 'user' }" class="btn me-auto">
+              Cancel
+            </router-link>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :class="{ disabled: isLoading }"
+            >
+              Invite
+            </button>
           </div>
         </form>
       </div>
@@ -43,7 +51,7 @@ import alert from "../../components/Alert";
 import axios from "axios";
 import { useRouter } from "vue-router";
 export default {
-  name: "Users Invite",
+  name: "User Invite",
   components: {
     textField,
     alert,
@@ -64,7 +72,7 @@ export default {
           console.log(res);
           isLoading.value = false;
           emit("updateUser");
-          router.push("/users");
+          router.push({ name: "user" });
         })
         .catch((err) => {
           if (err.response.status == 422) {

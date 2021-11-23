@@ -3,7 +3,7 @@
     <div class="page-header d-print-none">
       <div class="row align-items-center">
         <div class="col">
-          <h2 class="page-title">{{ this.$route.name }}</h2>
+          <h2 class="page-title">{{ this.$route.meta.title }}</h2>
         </div>
         <div class="col-auto ms-auto d-print-none">
           <div class="d-flex">
@@ -12,7 +12,7 @@
               class="form-control d-inline-block w-9 me-3"
               placeholder="Search user…"
             />
-            <router-link to="/users/invite" class="btn btn-primary">
+            <router-link :to="{ name: 'userInvite' }" class="btn btn-primary">
               <bi icon="person-plus-fill" class="me-2"></bi>
               Invite user
             </router-link>
@@ -53,8 +53,18 @@
                       <a href="#" class="dropdown-item text-warning"
                         ><bi icon="pencil-fill" class="me-2"></bi>Edit</a
                       >
-                      <a href="#" class="dropdown-item text-danger"
-                        ><bi icon="trash-fill" class="me-2"></bi>Remove</a
+                      <router-link
+                        :to="{
+                          name: 'userRemove',
+                          params: {
+                            username: user.username,
+                            id: user.id,
+                            name: user.name,
+                          },
+                        }"
+                        class="dropdown-item text-danger"
+                        ><bi icon="trash-fill" class="me-2"></bi
+                        >Remove</router-link
                       >
                     </div>
                   </div>
@@ -72,7 +82,6 @@
                 </div>
                 <div class="text-muted">{{ user.email }}</div>
               </div>
-              <!-- <hr /> -->
             </div>
             <div class="card-footer">
               <div class="row text-center">
@@ -99,7 +108,7 @@ import { ref } from "@vue/reactivity";
 import axios from "axios";
 import { onMounted } from "@vue/runtime-core";
 export default {
-  name: "Users List",
+  name: "User List",
   setup() {
     const users = ref([]);
     onMounted(() => {

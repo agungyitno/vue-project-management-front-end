@@ -56,7 +56,7 @@
             </li>
           </router-link>
           <router-link
-            :to="{ name: 'Users' }"
+            :to="{ name: 'user' }"
             custom
             v-slot="{ href, route, navigate, isActive, isExactActive }"
           >
