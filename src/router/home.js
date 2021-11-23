@@ -1,7 +1,10 @@
 const home = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
+    meta: {
+      title: "Home",
+    },
     component: () =>
       import(/* webpackChunkName: "home" */ "../views/home/Home"),
   },

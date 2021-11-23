@@ -21,7 +21,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem("token");
-  document.title = to.name + " | Sakti Project Management";
+  document.title = to.meta.title + " | Sakti Project Management";
   if (to.matched.some((record) => !record.meta.guest) && !loggedIn) {
     next("/login");
     return;

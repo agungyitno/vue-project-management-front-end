@@ -1,8 +1,9 @@
 const auth = [
   {
     path: "/register",
-    name: "Register",
+    name: "register",
     meta: {
+      title: "Create new Account",
       guest: true,
     },
     component: () =>
@@ -10,8 +11,9 @@ const auth = [
   },
   {
     path: "/login",
-    name: "Login",
+    name: "login",
     meta: {
+      title: "Sign in",
       guest: true,
     },
     props: true,
