@@ -39,4 +39,8 @@ export default {
   width: 1.25rem !important;
   height: 1.25rem !important;
 }
+.bi.icon-lg {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+}
 </style>
