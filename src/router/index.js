@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import auth from "./auth";
 import home from "./home";
-import users from "./users";
+import project from "./project";
+import user from "./user";
 
 const routes = [
   ...auth,
@@ -10,7 +11,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "home" */ "../views/layout/MainLayout"),
     props: true,
-    children: [...home, ...users],
+    children: [...home, ...user, ...project],
   },
 ];
 

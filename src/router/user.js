@@ -1,12 +1,12 @@
-const users = [
+const user = [
   {
-    path: "/users",
+    path: "/user",
     name: "user",
     meta: {
       title: "Users",
     },
     component: () =>
-      import(/* webpackChunkName: "users" */ "../views/users/Index"),
+      import(/* webpackChunkName: "user" */ "../views/user/Index"),
     children: [
       {
         path: "invite",
@@ -16,7 +16,7 @@ const users = [
           modal: true,
         },
         component: () =>
-          import(/* webpackChunkName: "users" */ "../views/users/Invite"),
+          import(/* webpackChunkName: "user" */ "../views/user/Invite"),
       },
       {
         path: ":username/remove",
@@ -27,10 +27,10 @@ const users = [
         },
         props: true,
         component: () =>
-          import(/* webpackChunkName: "users" */ "../views/users/Remove"),
+          import(/* webpackChunkName: "user" */ "../views/user/Remove"),
       },
     ],
   },
 ];
 
-export default users;
+export default user;
