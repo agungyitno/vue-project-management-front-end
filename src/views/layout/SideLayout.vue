@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="navbar-nav pt-lg-3">
           <router-link
-            :to="{ name: 'Home' }"
+            :to="{ name: 'home' }"
             custom
             v-slot="{ href, route, navigate, isExactActive }"
           >
@@ -51,10 +51,29 @@
                 <span class="nav-link-icon d-md-none d-lg-inline-block me-2"
                   ><bi icon="house" class="sidebar-icon"></bi>
                 </span>
-                <span class="nav-link-title"> {{ route.name }} </span>
+                <span class="nav-link-title"> {{ route.meta.title }} </span>
               </a>
             </li>
           </router-link>
+
+          <router-link
+            :to="{ name: 'project' }"
+            custom
+            v-slot="{ href, route, navigate, isActive, isExactActive }"
+          >
+            <li
+              class="nav-item"
+              :class="[isActive && 'active', isExactActive && 'active']"
+            >
+              <a class="nav-link" :href="href" @click="navigate">
+                <span class="nav-link-icon d-md-none d-lg-inline-block me-2"
+                  ><bi icon="kanban" class="sidebar-icon"></bi>
+                </span>
+                <span class="nav-link-title"> {{ route.meta.title }} </span>
+              </a>
+            </li>
+          </router-link>
+
           <router-link
             :to="{ name: 'user' }"
             custom
@@ -68,7 +87,7 @@
                 <span class="nav-link-icon d-md-none d-lg-inline-block me-2"
                   ><bi icon="person-lines-fill" class="sidebar-icon"></bi>
                 </span>
-                <span class="nav-link-title"> {{ route.name }} </span>
+                <span class="nav-link-title"> {{ route.meta.title }} </span>
               </a>
             </li>
           </router-link>
